@@ -54,7 +54,7 @@ func doCPU() {
 		panic(err)
 	}
 	NB("nbtop.cpu",
-		"cpu", t[0].CPU,
+		"cpu", string(t[0].CPU),
 		"ts_user", float64(t[0].User),
 		"ts_system", float64(t[0].System),
 		"ts_idle", float64(t[0].Idle),
@@ -86,7 +86,7 @@ func doDisk() {
 			continue
 		}
 		args := []interface{}{}
-		args = append(args, "mt_disk", disk)
+		args = append(args, "mt_disk", string(disk))
 		args = append(args, "ts_readcount", float64(stats.ReadCount))
 		args = append(args, "ts_mergedreadcount", float64(stats.MergedReadCount))
 		args = append(args, "ts_writecount", float64(stats.WriteCount))
@@ -109,7 +109,7 @@ func doNetwork() {
 	}
 	for _, stat := range t {
 		NB("nbtop.net",
-			"mt_nic", stat.Name,
+			"mt_nic", string(stat.Name),
 			"ts_sentbytes", float64(stat.BytesSent),
 			"ts_recvbytes", float64(stat.BytesRecv),
 			"ts_sentpackets", float64(stat.PacketsSent),

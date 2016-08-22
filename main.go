@@ -55,18 +55,18 @@ func doCPU() {
 	}
 	NB("nbtop.cpu",
 		"cpu", t[0].CPU,
-		"ts_user", t[0].User,
-		"ts_system", t[0].System,
-		"ts_idle", t[0].Idle,
-		"ts_nice", t[0].Nice,
-		"ts_iowait", t[0].Iowait,
-		"ts_irq", t[0].Irq,
-		"ts_softirq", t[0].Softirq,
-		"ts_steal", t[0].Steal,
-		"ts_guest", t[0].Guest,
-		"ts_guestnice", t[0].GuestNice,
-		"ts_stolen", t[0].Stolen,
-		"ts_total", t[0].Total(),
+		"ts_user", float64(t[0].User),
+		"ts_system", float64(t[0].System),
+		"ts_idle", float64(t[0].Idle),
+		"ts_nice", float64(t[0].Nice),
+		"ts_iowait", float64(t[0].Iowait),
+		"ts_irq", float64(t[0].Irq),
+		"ts_softirq", float64(t[0].Softirq),
+		"ts_steal", float64(t[0].Steal),
+		"ts_guest", float64(t[0].Guest),
+		"ts_guestnice", float64(t[0].GuestNice),
+		"ts_stolen", float64(t[0].Stolen),
+		"ts_total", float64(t[0].Total()),
 	)
 }
 
@@ -110,14 +110,14 @@ func doNetwork() {
 	for _, stat := range t {
 		NB("nbtop.net",
 			"mt_nic", stat.Name,
-			"ts_sentbytes", stat.BytesSent,
-			"ts_recvbytes", stat.BytesRecv,
-			"ts_sentpackets", stat.PacketsSent,
-			"ts_recvpackets", stat.PacketsRecv,
-			"ts_errin", stat.Errin,
-			"ts_errout", stat.Errout,
-			"ts_dropin", stat.Dropin,
-			"ts_dropout", stat.Dropout,
+			"ts_sentbytes", float64(stat.BytesSent),
+			"ts_recvbytes", float64(stat.BytesRecv),
+			"ts_sentpackets", float64(stat.PacketsSent),
+			"ts_recvpackets", float64(stat.PacketsRecv),
+			"ts_errin", float64(stat.Errin),
+			"ts_errout", float64(stat.Errout),
+			"ts_dropin", float64(stat.Dropin),
+			"ts_dropout", float64(stat.Dropout),
 		)
 	}
 }

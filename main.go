@@ -12,7 +12,7 @@ import (
 	"github.com/shirou/gopsutil/net"
 )
 
-const Interval = 200 * time.Millisecond
+const Interval = 2000 * time.Millisecond
 const Version = "1.0"
 
 func main() {
